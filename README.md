@@ -1,4 +1,4 @@
-# gitlab-ci-lint
+# gitlab-ci-lint-es
 
 
 
@@ -8,12 +8,12 @@ Gitlab-ci cli to lint .gitlab-ci.yml files
 
 ### Install
 ```Shell
-npm install -g gitlab-ci-lint
+npm install --save-dev gitlab-ci-lint-es
 ```
 
 ### CLI
 ```
-  Usage: gitlab-ci-lint [options] <file>
+  Usage: npx gitlab-ci-lint-es [options] <file>
 
   Options:
 
@@ -25,23 +25,23 @@ npm install -g gitlab-ci-lint
 #### examples
 * `.gitlab-ci.yml` is in the current directory
 ```
-gitlab-ci-lint
+gitlab-ci-lint-es
 ```
 
 * Alternative file
 ```
-gitlab-ci-lint <filename>
+gitlab-ci-lint-es <filename>
 ```
 
 * Alternative Gitlab url
 ```
-gitlab-ci-lint --url https://git.my.corp
+gitlab-ci-lint-es --url https://git.my.corp
 ```
 
 ### API
 
 ```
-const gitlabCILint = require('gitlab-ci-lint')
+import { lintFile } from 'gitlab-ci-lint-es';
 
 gitlabCILint.lintFile('.gitlab-ci.yml')
   .then((result) => console.log(result))

@@ -1,19 +1,19 @@
 {
-  "name": "gitlab-ci-lint",
+  "name": "gitlab-ci-lint-es",
   "version": "1.0.2",
   "description": "Gitlab-ci cli to lint .gitlab-ci.yml files",
   "repository": {
     "type": "git",
     "url": "https://github.com/BuBuaBu/gitlab-ci-lint.git"
   },
-  "main": "index.js",
+  "module": "lib/api.js",
   "scripts": {
-    "lint": "standard",
-    "test": "mocha -r babbybel --timeout 5000",
+    "lint": "eslint lib/ bin/",
+    "test": "jest",
     "posttest": "npm run lint"
   },
   "bin": {
-    "gitlab-ci-lint": "bin/gitlab-ci-lint"
+    "gitlab-ci-lint-es": "./bin/gitlab-ci-lint.js"
   },
   "keywords": [
     "gitlab",
@@ -24,27 +24,17 @@
   "author": "Vivien HENRIET",
   "license": "ISC",
   "dependencies": {
-    "babbybel": "^1.0.0",
-    "commander": "^4.0.1",
-    "mz": "^2.7.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "commander": "^6.2.1",
+    "got": "^11.8.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.2",
-    "standard": "^14.3.1"
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3"
   },
-  "standard": {
-    "globals": [
-      "describe",
-      "context",
-      "before",
-      "beforeEach",
-      "after",
-      "afterEach",
-      "it",
-      "expect"
-    ]
+  "type": "module",
+  "engines": {
+    "node": ">= 14"
   }
 }
